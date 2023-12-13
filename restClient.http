@@ -1,0 +1,263 @@
+@entryPoint = http://localhost:4200
+
+@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJub20iOiJZdXNzc214eHNzc2Vkb29vb2VlZWUiLCJwcmVub20iOiJZdW1lZG8iLCJlbWFpbCI6Inl1bWVsaW8ubWVzc2FnZUBnbWFpbC5jb20iLCJyb2xlIjoxfSwiaWF0IjoxNzAyNDc3Mjg1LCJleHAiOjE3MDI1NjM2ODV9.tZiFS4ese9n6yNw5D8YzRaSjmqELIOo7cFm_HvcW7Ms
+
+@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJub20iOiJZdXNzc214eHNzc2Vkb29vb2VlZWUiLCJwcmVub20iOiJZdW1lZG8iLCJlbWFpbCI6Inl1bWVsaW8ubWVzc2FnZUBnbWFpbC5jb20iLCJyb2xlIjoxfSwiaWF0IjoxNzAyNDgwODY4LCJleHAiOjE3MDI2NTM2Njh9.5ZBX5Pv8T4pJ6DKh1B_e4N2QhoIIwPC7_1p-IAk5s9k
+
+
+#& -----------------------------------------------
+#~ ------------------------------------------ USER
+#& -----------------------------------------------
+
+#~ ------------------------ doSignUp
+###
+POST {{entryPoint}}/signup
+Content-Type: application/json
+
+{
+    "nom": "Yumedo",
+    "prenom": "Yumedo",
+    "email": "yumelio.message@gmail.com",
+    "mot_de_passe": "N6y$Ozddzt=1aa",
+    "mot_de_passe_confirm": "N6y$Ozddzt=1aa"
+}
+
+#~ ------------------------ doSignIn
+###
+POST {{entryPoint}}/signin
+Content-Type: application/json
+
+{
+  "email": "yumelio.message@gmail.com",
+  "mot_de_passe": "N6y$Ozddzt=1aa"
+}
+
+#~ ------------------------ doSignOut
+###
+GET {{entryPoint}}/signout
+Content-Type: application/json
+{{refreshToken}}
+
+
+#^ ------------------------ fetchOneUser
+###
+GET {{entryPoint}}/users/12
+Content-Type: application/json
+{{accessToken}}
+
+
+#^ ------------------------ updateUser
+###
+PATCH {{entryPoint}}/users/8
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "nom": "Yusssmdsqdqdxxsssedooooeeee"
+}
+
+
+#^ ------------------------ deleteUser
+###
+DELETE {{entryPoint}}/users/8
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ refreshToken
+###
+POST {{entryPoint}}/refreshToken
+Content-Type: application/json
+{{refreshToken}}
+
+#& -----------------------------------------------
+#~ --------------------------------------- ARTICLE
+#& -----------------------------------------------
+
+#^ ------------------------ createArticle
+###
+POST {{entryPoint}}/articles
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "title": "Super article !",
+    "abstract": "Description de mon article",
+    "content": "Ceci est mon article"
+}
+
+#^ ------------------------ fetchAllArticles
+###
+GET {{entryPoint}}/users/12/articles
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ fetchOneArticle
+###
+GET {{entryPoint}}/users/12/articles/14
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ updateArticle
+###
+PATCH {{entryPoint}}/articles/12
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "title": "Super article modifiééééééé !",
+    "abstract": "Description de mon article modifié",
+    "content": "Ceci est mon article modifié"
+}
+
+#^ ------------------------ deleteArticle
+###
+DELETE {{entryPoint}}/articles/13
+Content-Type: application/json
+{{accessToken}}
+
+#& -----------------------------------------------
+#~ --------------------------------------- PROJECT
+#& -----------------------------------------------
+
+#^ ------------------------ createProject
+###
+POST {{entryPoint}}/projects
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "title": "Super projet !",
+    "abstract": "Description de mon projet",
+    "content": "Ceci est mon projet",
+    "picture": "http://www.myPicture.com",
+    "is_active": true,
+    "date": "10 Mars 2022",
+    "link": "http://www.myLink.com",
+    "categories": [
+        {"id":3},
+        {"id":6},
+        {"id":1}
+    ]
+}
+
+#^ ------------------------ fetchAllProjects
+###
+GET {{entryPoint}}/users/12/projects
+Content-Type: application/json
+
+#^ ------------------------ fetchOneProject
+###
+GET {{entryPoint}}/users/12/projects/24
+Content-Type: application/json
+
+
+#^ ------------------------ updateProject
+###
+PATCH {{entryPoint}}/projects/24
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "title": "Super projet modifié !",
+    "abstract": "Description de mon projet modifié",
+    "content": "Ceci est mon projet modifié",
+    "picture": "http://www.myPicture.com",
+    "is_active": true,
+    "date": "10 Mars 2022",
+    "link": "http://www.myLink.com",
+    "categories": [
+        {"id":9, "old_category":3},
+        {"id":6},
+        {"id":1}
+    ]
+}
+
+#^ ------------------------ deleteProject
+###
+DELETE {{entryPoint}}/projects/11
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ fetchAllProjectsWithCategories
+###
+GET {{entryPoint}}/projects/categories
+Content-Type: application/json
+
+#& -----------------------------------------------
+#~ ------------------------------------- GB-TICKET
+#& -----------------------------------------------
+
+#^ ------------------------ createGoldenBookTicket
+###
+POST {{entryPoint}}/gb-tickets
+Content-Type: application/json
+{{accessToken}}
+
+{
+  "content" : "test"
+}
+
+#^ ------------------------ fetchAllGoldenBookTickets
+###
+GET {{entryPoint}}/gb-tickets
+Content-Type: application/json
+{{accessToken}}
+
+
+#^ ------------------------ updateGoldenBookTicket
+###
+PATCH {{entryPoint}}/gb-tickets/5
+Content-Type: application/json
+{{accessToken}}
+
+{
+  "content" : "Update ticket"
+}
+
+#^ ------------------------ deleteGoldenBookTicket
+###
+DELETE {{entryPoint}}/gb-tickets/21
+Content-Type: application/json
+{{accessToken}}
+
+
+
+#& -----------------------------------------------
+#~ -------------------------------------- CATEGORY
+#& -----------------------------------------------
+
+#^ ------------------------ createCategory
+###
+POST {{entryPoint}}/categories
+Content-Type: application/json
+{{accessToken}}
+
+{
+  "name" : "test",
+  "logo" : "svg",
+  "color": "#000"
+}
+
+#^ ------------------------ fetchAllCategories
+###
+GET {{entryPoint}}/categories
+Content-Type: application/json
+# {{accessToken}}
+
+#^ ------------------------ updateCategory
+###
+PATCH {{entryPoint}}/categories/44
+Content-Type: application/json
+{{accessToken}}
+
+{
+  "name" : "testa",
+  "logo" : "svg",
+  "color": "#000"
+}
+
+#^ ------------------------ deleteCategory
+###
+DELETE {{entryPoint}}/categories/45
+Content-Type: application/json
+{{accessToken}}
