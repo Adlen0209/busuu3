@@ -81,9 +81,12 @@ const doSignOut = async (req: Request, res: Response) => {
     
     req.user = null;
     req.session.destroy();
+
+    console.log('signout user', req.user)
+    
    
     //~ Result
-     return res.status(204).json(`User disconnected !`);
+     return res.status(200).json(`User disconnected !`);
   } catch (err) {
     if (err instanceof Error) logger(err.message);
   }
@@ -117,7 +120,7 @@ const updateUser = async (req: Request, res: Response) => {
     const userId = await coreController.paramsHandler(req, res, 'userId');
 
     //~ fetch if exist
-    await userModel.fetchUser(req, res, userId);
+     await userModel.fetchUser(req, res, userId);
 
     //~ check email if exist ?
     await userModel.checkEmail(req, res, email);
@@ -136,9 +139,9 @@ const updateUser = async (req: Request, res: Response) => {
       req.body.mot_de_passe = mot_de_passe;
     }
 
+    
     //~ Guard Clauses
     if (req.user?.id !== userId) throw new ErrorApi(`Given informations not allows any modification`, req, res, 403);
-
     //~ Update user
     req.body = { ...req.body, id: userId };
     await userModel.updateItem(req);
@@ -153,14 +156,19 @@ const updateUser = async (req: Request, res: Response) => {
 //& -------- deleteUser
 const deleteUser = async (req: Request, res: Response) => {
   try {
+    console.log("controller")
     const userId = req.user?.id;
 
     //~ Is id a number ?
     const userIdParams = await coreController.paramsHandler(req, res, 'userId');
 
+    console.log('idparams', userIdParams)
+    console.log('userId', userId)
+    
     //~ User exist ?
     const user = await userModel.fetchUser(req, res, userIdParams);
 
+    console.log('user', user)
     //~ Guard Clauses
     // only the user that want to access his info can or admin
     if (userId !== userIdParams && req.user?.role !== 2) throw new ErrorApi(`You cannot access this info, go away !`, req, res, 400);

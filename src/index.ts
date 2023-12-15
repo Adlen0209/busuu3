@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 
 //~ Cors
 app.use((req: Request, res: Response, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:6001');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,PATCH,DELETE');
   res.setHeader('Access-Control-Allow-Credentials', 'true');

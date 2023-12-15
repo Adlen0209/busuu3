@@ -21,7 +21,7 @@ function validateToken(req: Request, res: Response, next: NextFunction) {
       req.user = user.user;
 
       req.session.token = accessToken;
-      console.log(req.session.token)
+      
       
       next();
     });

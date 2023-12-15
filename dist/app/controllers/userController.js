@@ -51,9 +51,8 @@ const doSignOut = async (req, res) => {
     try {
         req.user = null;
         req.session.destroy();
-        console.log('session', req.user);
-        console.log("user", req.user);
-        return res.status(204).json(`User disconnected !`);
+        console.log('signout user', req.user);
+        return res.status(200).json(`User disconnected !`);
     }
     catch (err) {
         if (err instanceof Error)
@@ -103,9 +102,13 @@ const updateUser = async (req, res) => {
 };
 const deleteUser = async (req, res) => {
     try {
+        console.log("controller");
         const userId = req.user?.id;
         const userIdParams = await coreController.paramsHandler(req, res, 'userId');
+        console.log('idparams', userIdParams);
+        console.log('userId', userId);
         const user = await userModel.fetchUser(req, res, userIdParams);
+        console.log('user', user);
         if (userId !== userIdParams && req.user?.role !== 2)
             throw new ErrorApi(`You cannot access this info, go away !`, req, res, 400);
         await userModel.deleteItem(userIdParams);

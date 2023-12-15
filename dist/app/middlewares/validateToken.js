@@ -5,7 +5,6 @@ const logger = debug('Jwt');
 function validateToken(req, res, next) {
     try {
         const authHeader = req.headers['authorization'];
-        console.log(req.headers);
         if (authHeader === undefined)
             throw new ErrorApi('No token found !', req, res, 400);
         const accessToken = authHeader.split(' ')[1];
@@ -15,7 +14,6 @@ function validateToken(req, res, next) {
             }
             req.user = user.user;
             req.session.token = accessToken;
-            console.log(req.session.token);
             next();
         });
     }

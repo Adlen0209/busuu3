@@ -12,7 +12,7 @@ router.post('/signin', doSignIn);
 router.get('/signout', [getRefreshToken], doSignOut);
 router.get('/users/:userId(\\d+)', [validateToken, auth, admin], fetchOneUser);
 router.patch('/users/:userId(\\d+)', validate(userUpdateSchema), [validateToken, auth], updateUser);
-router.delete('/users/userId(\\d+)', [validateToken, auth], deleteUser);
+router.delete('/users/:userId(\\d+)', [validateToken, auth], deleteUser);
 router.post('/refreshToken', [getRefreshToken], refreshToken);
 export { router };
 //# sourceMappingURL=user.js.map

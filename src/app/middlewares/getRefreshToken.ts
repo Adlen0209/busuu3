@@ -25,7 +25,7 @@ function getRefreshToken(req: Request, res: Response, next: NextFunction) {
       // reset refresh token in session
       req.session.refreshToken = [];
       req.user = user.user;
-
+      
       next();
     });
   } catch (err) {

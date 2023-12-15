@@ -28,7 +28,7 @@ router.get('/users/:userId(\\d+)', [validateToken, auth, admin], fetchOneUser);
 router.patch('/users/:userId(\\d+)', validate(userUpdateSchema), [validateToken, auth], updateUser)
 
 //~ Update user 
-router.delete('/users/userId(\\d+)', [validateToken, auth], deleteUser);
+router.delete('/users/:userId(\\d+)', [validateToken, auth], deleteUser);
 
 router.post('/refreshToken', [getRefreshToken], refreshToken);
 

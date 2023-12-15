@@ -75,7 +75,6 @@ class CoreDataMapper {
                 text,
                 values: inputDataValue,
             };
-            console.log("preparedQuery:", preparedQuery);
             const result = await this.client.query(preparedQuery);
             return result.rowCount;
         }
