@@ -24,6 +24,16 @@ class CoreDataMapper {
             return result.rows;
         }
     }
+    async findAll() {
+        if (this.client instanceof pg.Pool) {
+            const preparedQuery = {
+                text: `SELECT * FROM  "${this.tableName}"
+                      ORDER BY "id";`,
+            };
+            const result = await this.client.query(preparedQuery);
+            return result.rows;
+        }
+    }
     async findOne(id) {
         if (this.client instanceof pg.Pool) {
             const preparedQuery = {

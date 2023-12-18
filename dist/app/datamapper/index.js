@@ -1,3 +1,4 @@
 import { User } from "./user.js";
-export { User };
+import { Training } from "./training.js";
+export { User, Training };
 //# sourceMappingURL=index.js.map

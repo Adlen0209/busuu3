@@ -55,19 +55,18 @@ class CoreDataMapper {
   }
 
   //& FindAll
-  // async findAll() {
-  //   if (this.client instanceof pg.Pool) {
-  //     const preparedQuery = {
-  //       text: `SELECT * FROM  "${this.tableName}"
-  //                    ORDER BY "id";`,
-  //     };
+   async findAll() {
+     if (this.client instanceof pg.Pool) {
+       const preparedQuery = {
+         text: `SELECT * FROM  "${this.tableName}"
+                      ORDER BY "id";`,
+       };
+     const result = await this.client.query(preparedQuery);
+     return result.rows;
+   }
+ }
 
-  //     const result = await this.client.query(preparedQuery);
-  //     return result.rows;
-  //   }
-  // }
-
-  //& FindOne
+//& FindOne
   async findOne(id: number | undefined) {
     if (this.client instanceof pg.Pool) {
       const preparedQuery = {

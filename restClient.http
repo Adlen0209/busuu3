@@ -1,7 +1,7 @@
 @entryPoint = http://localhost:4200
 
-@accessToken = Authorization: Bearer 
-@refreshToken = Authorization: Bearer 
+@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDI5MDEzMjMsImV4cCI6MTcwMjk4NzcyM30.iX-VG45OuX7DJhwTEdM1lblet1c-DpLHPvv257Tm3Lk
+@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDI5MDEzMjMsImV4cCI6MTcwMzA3NDEyM30.YVI20vxciwNadRTSaF0fUU9kWM-r2kWLSZcvrb5MJig
 
 
 #& -----------------------------------------------
@@ -14,9 +14,9 @@ POST {{entryPoint}}/signup
 Content-Type: application/json
 
 {
-    "nom": "testtt",
-    "prenom": "testo",
-    "email": "test.message@gmail.com",
+    "nom": "testtt2",
+    "prenom": "testo2",
+    "email": "test2admin@gmail.com",
     "mot_de_passe": "N6y$Ozddzt=1aa",
     "mot_de_passe_confirm": "N6y$Ozddzt=1aa"
 }
@@ -27,7 +27,7 @@ POST {{entryPoint}}/signin
 Content-Type: application/json
 
 {
-  "email": "test.message@gmail.com",
+  "email": "test2admin@gmail.com",
   "mot_de_passe": "N6y$Ozddzt=1aa"
 }
 
@@ -40,14 +40,14 @@ Content-Type: application/json
 
 #^ ------------------------ fetchOneUser
 ###
-GET {{entryPoint}}/users/8
+GET {{entryPoint}}/users/1
 Content-Type: application/json
 {{accessToken}}
 
 
 #^ ------------------------ updateUser
 ###
-PATCH {{entryPoint}}/users/8
+PATCH {{entryPoint}}/users/1
 Content-Type: application/json
 {{accessToken}}
 
@@ -67,3 +67,42 @@ Content-Type: application/json
 POST {{entryPoint}}/refreshToken
 Content-Type: application/json
 {{refreshToken}}
+
+
+#^ ------------------------ Training
+
+#^ ------------------------ createTraining
+###
+POST {{entryPoint}}/training
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "titre": "Training Vegeta !",
+    "detail": "performances "
+
+}
+
+
+#^ ------------------------ fetchAllTraining
+###
+GET {{entryPoint}}/training
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ updateTraining
+###
+PATCH {{entryPoint}}/training/1
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "titre": "100 pompes",
+    "detail": "bla bla bla "
+}
+
+#^ ------------------------ deleteTraining
+###
+DELETE {{entryPoint}}/training/1
+Content-Type: application/json
+{{accessToken}}
