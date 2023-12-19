@@ -15,13 +15,13 @@ import { coreController } from './coreController.js';
 
 
 //~ Controller
-//& -------- createCategory
+//& -------- createTraining
 const createTraining = async (req: Request, res: Response) => {
     try {
       //~ Guard Clauses
-      if (req.user?.role !== 2) throw new ErrorApi(`You cannot access this info, go away !`, req, res, 400);
+      if (req.user?.role !== 2) throw new ErrorApi(`You cannot access this info`, req, res, 400);
   
-      //~ Create Category
+      //~ Create Training
       await trainingModel.createItem(req, res);
   
       //~ Result
@@ -31,6 +31,8 @@ const createTraining = async (req: Request, res: Response) => {
     }
   };
 
+
+  //& ------- Fetch All Training
 const fetchAllTraining = async (req: Request, res: Response) => {
   try {
     // Fetch if exist
@@ -66,7 +68,7 @@ const updateTraining = async (req: Request, res: Response) => {
   }
 };
 
-//& -------- deleteCategory
+//& -------- deleteTraining
 const deleteTraining = async (req: Request, res: Response) => {
   try {
     //~ Is id a number ?

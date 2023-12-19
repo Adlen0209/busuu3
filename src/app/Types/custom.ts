@@ -26,4 +26,7 @@ export type User = {
     mot_de_passe_confirm: string;
   }
   
-  
+  //& Type
+  export interface TypeSchema {
+    titre: string;
+  }

@@ -110,7 +110,7 @@ const deleteUser = async (req, res) => {
         const user = await userModel.fetchUser(req, res, userIdParams);
         console.log('user', user);
         if (userId !== userIdParams && req.user?.role !== 2)
-            throw new ErrorApi(`You cannot access this info, go away !`, req, res, 400);
+            throw new ErrorApi(`You cannot access this info`, req, res, 400);
         await userModel.deleteItem(userIdParams);
         req.user = null;
         req.session.destroy();

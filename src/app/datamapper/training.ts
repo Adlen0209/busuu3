@@ -1,6 +1,5 @@
 //~ Import modules
 import client from '../db/database.js';
-import pg from 'pg';
 import { CoreDataMapper } from './coreDataMapper.js';
 
 class TrainingDataMapper extends CoreDataMapper {

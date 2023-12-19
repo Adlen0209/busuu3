@@ -1,5 +1,4 @@
 //~ Import modules
-// import { ErrorApi } from '../services/errorHandler.js';
 import { Request, Response } from 'express';
 import { userModel } from '../models/user.js';
 import bcrypt from 'bcrypt';
@@ -171,7 +170,7 @@ const deleteUser = async (req: Request, res: Response) => {
     console.log('user', user)
     //~ Guard Clauses
     // only the user that want to access his info can or admin
-    if (userId !== userIdParams && req.user?.role !== 2) throw new ErrorApi(`You cannot access this info, go away !`, req, res, 400);
+    if (userId !== userIdParams && req.user?.role !== 2) throw new ErrorApi(`You cannot access this info`, req, res, 400);
 
     //~ Delete User
     await userModel.deleteItem(userIdParams);

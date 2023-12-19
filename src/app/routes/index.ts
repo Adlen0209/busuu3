@@ -15,6 +15,12 @@ router.use(userRouter);
 
 //~ Training
 import { router as trainingRouter } from './training.js'
-router.use(trainingRouter)
+router.use(trainingRouter);
 
+//~ Type
+import { router as typeRouter} from './type.js'
+router.use(typeRouter)
+
+
+// Export router
 export { router };

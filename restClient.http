@@ -1,7 +1,7 @@
 @entryPoint = http://localhost:4200
 
-@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDI5MDEzMjMsImV4cCI6MTcwMjk4NzcyM30.iX-VG45OuX7DJhwTEdM1lblet1c-DpLHPvv257Tm3Lk
-@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDI5MDEzMjMsImV4cCI6MTcwMzA3NDEyM30.YVI20vxciwNadRTSaF0fUU9kWM-r2kWLSZcvrb5MJig
+@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDI5OTAyMjUsImV4cCI6MTcwMzA3NjYyNX0.TfVGHV4pjQSkxPJrD0XBB0iPGXBw16l2aD2aDcfo9dk
+@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDI5OTAyMjUsImV4cCI6MTcwMzE2MzAyNX0.hZ18tu6y1S9Fg6Tqtkr2RpAKiHaeUmUNeKfXoxKJwek
 
 
 #& -----------------------------------------------
@@ -104,5 +104,43 @@ Content-Type: application/json
 #^ ------------------------ deleteTraining
 ###
 DELETE {{entryPoint}}/training/1
+Content-Type: application/json
+{{accessToken}}
+
+
+
+#^ ------------------------ Type
+
+#^ ------------------------ createType
+###
+POST {{entryPoint}}/type
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "titre": "Remise en forme"
+
+}
+
+
+#^ ------------------------ fetchAllType
+###
+GET {{entryPoint}}/type
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ updateType
+###
+PATCH {{entryPoint}}/type/1
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "titre": "100 pompes"
+}
+
+#^ ------------------------ deleteType
+###
+DELETE {{entryPoint}}/type/1
 Content-Type: application/json
 {{accessToken}}

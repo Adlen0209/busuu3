@@ -21,6 +21,7 @@ router.get('/training', [validateToken, auth], fetchAllTraining);
 //~ Update Training
 router.patch('/training/:trainingId(\\d+)', validate(trainingSchema), [validateToken, auth, admin], updateTraining);
 
+//~Delete Training
 router.delete('/training/:trainingId(\\d+)', [validateToken, auth, admin], deleteTraining);
 
 

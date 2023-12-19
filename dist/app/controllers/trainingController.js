@@ -6,7 +6,7 @@ import { coreController } from './coreController.js';
 const createTraining = async (req, res) => {
     try {
         if (req.user?.role !== 2)
-            throw new ErrorApi(`You cannot access this info, go away !`, req, res, 400);
+            throw new ErrorApi(`You cannot access this info`, req, res, 400);
         await trainingModel.createItem(req, res);
         return res.status(201).json('Training successfully created !');
     }
