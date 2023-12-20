@@ -29,5 +29,9 @@ router.use(exerciceRouter)
 import { router as materielRouter} from './materiel.js'
 router.use(materielRouter)
 
+//~ Objectif
+import { router as objectifRouter} from './objectif.js'
+router.use(objectifRouter);
+
 // Export router
 export { router };

@@ -207,16 +207,54 @@ Content-Type: application/json
 
 #^ ------------------------ updateExercice
 ###
-PATCH {{entryPoint}}/exercice/1
+PATCH {{entryPoint}}/materiel/1
 Content-Type: application/json
 {{accessToken}}
 
 {
-    "titre": "100 pompes"
+    "nom": "100 pompes"
 }
 
 #^ ------------------------ deleteExercice
 ###
-DELETE {{entryPoint}}/exercice/2
+DELETE {{entryPoint}}/materiel/1
+Content-Type: application/json
+{{accessToken}}
+
+
+
+#^ ------------------------ Objectif
+
+#^ ------------------------ createObjectif
+###
+POST {{entryPoint}}/objectif
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "nombre_rep": 35,
+    "temps": 30
+}
+
+
+#^ ------------------------ fetchAllObjectif
+###
+GET {{entryPoint}}/objectif
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ updateObjectif
+###
+PATCH {{entryPoint}}/objectif/1
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "nombre_rep": 100
+}
+
+#^ ------------------------ deleteExercice
+###
+DELETE {{entryPoint}}/materiel/1
 Content-Type: application/json
 {{accessToken}}

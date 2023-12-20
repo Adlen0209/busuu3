@@ -42,3 +42,9 @@ export type User = {
   export interface MaterielSchema {
     nom: string;
   }
+
+  //& Objectif
+  export interface ObjectifSchema {
+    nombre_rep: number;
+    temps: number
+  }
