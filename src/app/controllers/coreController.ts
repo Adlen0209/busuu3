@@ -6,7 +6,9 @@ interface CoreController {}
 class CoreController {
   //& ParamsHandler
   paramsHandler = async (req: Request, res: Response, elementId: string) => {
+    console.log('controller', elementId)
     const idVerified = +req.params[elementId];
+
     if (isNaN(idVerified)) throw new ErrorApi(`Id must be a number`, req, res, 400);
     return idVerified;
   };

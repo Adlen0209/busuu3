@@ -30,3 +30,10 @@ export type User = {
   export interface TypeSchema {
     titre: string;
   }
+
+  //& Exercice
+  export interface ExerciceSchema {
+    titre: string;
+    detail: string;
+    illustration: string;
+  }

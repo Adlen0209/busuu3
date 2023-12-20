@@ -21,6 +21,9 @@ router.use(trainingRouter);
 import { router as typeRouter} from './type.js'
 router.use(typeRouter)
 
+//~ Exercice
+import { router as exerciceRouter } from './exercice.js'
+router.use(exerciceRouter)
 
 // Export router
 export { router };

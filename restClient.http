@@ -1,7 +1,7 @@
 @entryPoint = http://localhost:4200
 
-@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDI5OTAyMjUsImV4cCI6MTcwMzA3NjYyNX0.TfVGHV4pjQSkxPJrD0XBB0iPGXBw16l2aD2aDcfo9dk
-@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDI5OTAyMjUsImV4cCI6MTcwMzE2MzAyNX0.hZ18tu6y1S9Fg6Tqtkr2RpAKiHaeUmUNeKfXoxKJwek
+@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDMwODc4MTksImV4cCI6MTcwMzE3NDIxOX0.6IE3Ws9-V-CXDpirKOsp5oNG42z673tnnRprGaF6rs8
+@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDMwODc4MTksImV4cCI6MTcwMzI2MDYxOX0.ScxVviyAluH_p3oWJviUS2vkttpGtYpa4BI73vfAuKI
 
 
 #& -----------------------------------------------
@@ -14,7 +14,7 @@ POST {{entryPoint}}/signup
 Content-Type: application/json
 
 {
-    "nom": "testtt2",
+    "nom": "testtt3",
     "prenom": "testo2",
     "email": "test2admin@gmail.com",
     "mot_de_passe": "N6y$Ozddzt=1aa",
@@ -47,7 +47,7 @@ Content-Type: application/json
 
 #^ ------------------------ updateUser
 ###
-PATCH {{entryPoint}}/users/1
+PATCH {{entryPoint}}/users/2
 Content-Type: application/json
 {{accessToken}}
 
@@ -131,7 +131,7 @@ Content-Type: application/json
 
 #^ ------------------------ updateType
 ###
-PATCH {{entryPoint}}/type/1
+PATCH {{entryPoint}}/type/3
 Content-Type: application/json
 {{accessToken}}
 
@@ -141,6 +141,46 @@ Content-Type: application/json
 
 #^ ------------------------ deleteType
 ###
-DELETE {{entryPoint}}/type/1
+DELETE {{entryPoint}}/type/2
+Content-Type: application/json
+{{accessToken}}
+
+
+
+
+#^ ------------------------ Exercice
+
+#^ ------------------------ createExercice
+###
+POST {{entryPoint}}/exercice
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "titre": "tractions",
+    "detail": "barre fixe, passer la tête au dessus de la barre, puis redescendre ",
+    "illustration": "svg"
+}
+
+
+#^ ------------------------ fetchAllExercice
+###
+GET {{entryPoint}}/exercice
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ updateExercice
+###
+PATCH {{entryPoint}}/exercice/1
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "titre": "100 pompes"
+}
+
+#^ ------------------------ deleteExercice
+###
+DELETE {{entryPoint}}/exercice/2
 Content-Type: application/json
 {{accessToken}}

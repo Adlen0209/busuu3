@@ -1,4 +1,5 @@
 import { User } from "./user.js";
 import { Training } from "./training.js";
-export { User, Training };
+import { Exercice } from "./exercice.js";
+export { User, Training, Exercice };
 //# sourceMappingURL=index.js.map
