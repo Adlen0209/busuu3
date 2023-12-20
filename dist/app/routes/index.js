@@ -10,5 +10,7 @@ import { router as typeRouter } from './type.js';
 router.use(typeRouter);
 import { router as exerciceRouter } from './exercice.js';
 router.use(exerciceRouter);
+import { router as materielRouter } from './materiel.js';
+router.use(materielRouter);
 export { router };
 //# sourceMappingURL=index.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"materiel.schema.js","sourceRoot":"","sources":["../../src/schema/materiel.schema.ts"],"names":[],"mappings":"AAGA,MAAM,cAAc,GAAmC;IACrD,IAAI,EAAE,QAAQ;IACd,UAAU,EAAE;QACV,GAAG,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE;KAExB;IACD,QAAQ,EAAE,CAAC,KAAK,CAAC;IACjB,oBAAoB,EAAE,KAAK;CAC5B,CAAC;AAEF,OAAO,EAAE,cAAc,EAAE,CAAC"}

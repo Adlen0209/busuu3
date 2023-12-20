@@ -37,3 +37,8 @@ export type User = {
     detail: string;
     illustration: string;
   }
+
+  //& Materiel
+  export interface MaterielSchema {
+    nom: string;
+  }

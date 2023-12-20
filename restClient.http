@@ -184,3 +184,39 @@ Content-Type: application/json
 DELETE {{entryPoint}}/exercice/2
 Content-Type: application/json
 {{accessToken}}
+
+
+#^ ------------------------ Materiel
+
+#^ ------------------------ createMateriel
+###
+POST {{entryPoint}}/materiel
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "nom": "barre hexagonale"
+}
+
+
+#^ ------------------------ fetchAllMateriel
+###
+GET {{entryPoint}}/materiel
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ updateExercice
+###
+PATCH {{entryPoint}}/exercice/1
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "titre": "100 pompes"
+}
+
+#^ ------------------------ deleteExercice
+###
+DELETE {{entryPoint}}/exercice/2
+Content-Type: application/json
+{{accessToken}}
