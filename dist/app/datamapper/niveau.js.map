@@ -1,0 +1,1 @@
+{"version":3,"file":"niveau.js","sourceRoot":"","sources":["../../../src/app/datamapper/niveau.ts"],"names":[],"mappings":"AACA,OAAO,MAAM,MAAM,mBAAmB,CAAC;AACvC,OAAO,EAAE,cAAc,EAAE,MAAM,qBAAqB,CAAC;AAErD,MAAM,gBAAiB,SAAQ,cAAc;IAC3C,SAAS,GAAG,QAAQ,CAAC;IACrB,OAAO,GAAG,0BAA0B,CAAC;CAEtC;AAED,MAAM,MAAM,GAAG,IAAI,gBAAgB,CAAC,MAAM,CAAC,CAAC;AAE5C,OAAO,EAAE,MAAM,EAAE,CAAC"}

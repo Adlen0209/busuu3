@@ -1,5 +1,5 @@
 import { CoreModel } from './coreModel.js';
-import { Objectif } from '../datamapper/objectif.js';
+import { Objectif } from '../datamapper/index.js';
 class ObjectifModel extends CoreModel {
     infoNotFound = `Materiel doesn't exist`;
     infoNoDataFound = 'No data found !';

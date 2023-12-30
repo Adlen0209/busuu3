@@ -43,8 +43,8 @@ export type User = {
     nom: string;
   }
 
-  //& Objectif
-  export interface ObjectifSchema {
-    nombre_rep: number;
-    temps: number
+  //& Niveau
+  export interface NiveauSchema {
+    description: string;
+    max_rep: number;
   }

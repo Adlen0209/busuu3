@@ -1,5 +1,5 @@
 import { CoreModel } from './coreModel.js';
-import { Training } from '../datamapper/training.js';
+import { Training } from '../datamapper/index.js';
 
 class TrainingModel extends CoreModel {
   //& Properties

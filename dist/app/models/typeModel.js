@@ -1,5 +1,5 @@
 import { CoreModel } from './coreModel.js';
-import { Type } from '../datamapper/type.js';
+import { Type } from '../datamapper/index.js';
 class TypeModel extends CoreModel {
     infoNotFound = `Type doesn't exist`;
     infoNoDataFound = 'No data found !';

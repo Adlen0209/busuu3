@@ -1,8 +1,7 @@
 @entryPoint = http://localhost:4200
 
-@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDMwODc4MTksImV4cCI6MTcwMzE3NDIxOX0.6IE3Ws9-V-CXDpirKOsp5oNG42z673tnnRprGaF6rs8
-@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0dHQyIiwicHJlbm9tIjoidGVzdG8yIiwiZW1haWwiOiJ0ZXN0MmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDMwODc4MTksImV4cCI6MTcwMzI2MDYxOX0.ScxVviyAluH_p3oWJviUS2vkttpGtYpa4BI73vfAuKI
-
+@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJub20iOiJ0ZXN0IiwicHJlbm9tIjoiYWRtaW4iLCJlbWFpbCI6InRlc3RhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoyfSwiaWF0IjoxNzAzOTIwOTE5LCJleHAiOjE3MDQwMDczMTl9.kdkRGhFbMdxRUN18-hHRDZT40yIva1WOdReg5BvsYY0
+@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJub20iOiJ0ZXN0IiwicHJlbm9tIjoiYWRtaW4iLCJlbWFpbCI6InRlc3RhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoyfSwiaWF0IjoxNzAzOTIwOTE5LCJleHAiOjE3MDQwOTM3MTl9.MlkDi6WGBi4dMJpetIVUE2qeaaSd7r5ukwvJNip5Kas
 
 #& -----------------------------------------------
 #~ ------------------------------------------ USER
@@ -14,9 +13,9 @@ POST {{entryPoint}}/signup
 Content-Type: application/json
 
 {
-    "nom": "testtt3",
-    "prenom": "testo2",
-    "email": "test2admin@gmail.com",
+    "nom": "test",
+    "prenom": "user",
+    "email": "test@gmail.com",
     "mot_de_passe": "N6y$Ozddzt=1aa",
     "mot_de_passe_confirm": "N6y$Ozddzt=1aa"
 }
@@ -27,7 +26,7 @@ POST {{entryPoint}}/signin
 Content-Type: application/json
 
 {
-  "email": "test2admin@gmail.com",
+  "email": "testadmin@gmail.com",
   "mot_de_passe": "N6y$Ozddzt=1aa"
 }
 
@@ -40,14 +39,14 @@ Content-Type: application/json
 
 #^ ------------------------ fetchOneUser
 ###
-GET {{entryPoint}}/users/1
+GET {{entryPoint}}/users/2
 Content-Type: application/json
 {{accessToken}}
 
 
 #^ ------------------------ updateUser
 ###
-PATCH {{entryPoint}}/users/2
+PATCH {{entryPoint}}/users/1
 Content-Type: application/json
 {{accessToken}}
 
@@ -253,8 +252,26 @@ Content-Type: application/json
     "nombre_rep": 100
 }
 
-#^ ------------------------ deleteExercice
+#^ ------------------------ deleteObjectif
 ###
-DELETE {{entryPoint}}/materiel/1
+DELETE {{entryPoint}}/objectif/2
 Content-Type: application/json
 {{accessToken}}
+
+
+
+#^ ------------------------ Niveau
+
+#^ ------------------------ createNiveau
+###
+POST {{entryPoint}}/niveau
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "numero_level": 1,
+    "nombre_serie": 5,
+    "numero_serie": 2
+}
+
+

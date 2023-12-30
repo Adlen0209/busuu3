@@ -1,5 +1,5 @@
 import { CoreModel } from './coreModel.js';
-import { Materiel } from '../datamapper/materiel.js';
+import { Materiel } from '../datamapper/index.js';
 
 class MaterielModel extends CoreModel {
   //& Properties

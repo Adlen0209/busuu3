@@ -1,5 +1,5 @@
 import { CoreModel } from './coreModel.js';
-import { User } from '../datamapper/user.js';
+import { User } from '../datamapper/index.js';
 class UserModel extends CoreModel {
     infoNotFound = `User doesn't exist`;
     infoEmail = `Email already exist !`;
