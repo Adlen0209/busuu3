@@ -1,7 +1,7 @@
 @entryPoint = http://localhost:4200
 
-@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJub20iOiJ0ZXN0IiwicHJlbm9tIjoiYWRtaW4iLCJlbWFpbCI6InRlc3RhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoyfSwiaWF0IjoxNzAzOTIwOTE5LCJleHAiOjE3MDQwMDczMTl9.kdkRGhFbMdxRUN18-hHRDZT40yIva1WOdReg5BvsYY0
-@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJub20iOiJ0ZXN0IiwicHJlbm9tIjoiYWRtaW4iLCJlbWFpbCI6InRlc3RhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoyfSwiaWF0IjoxNzAzOTIwOTE5LCJleHAiOjE3MDQwOTM3MTl9.MlkDi6WGBi4dMJpetIVUE2qeaaSd7r5ukwvJNip5Kas
+@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1LCJub20iOiJ0ZXN0NCIsInByZW5vbSI6InVzZXI0IiwiZW1haWwiOiJ0ZXN0NEBnbWFpbC5jb20iLCJyb2xlIjoxfSwiaWF0IjoxNzA0MDA4NDg4LCJleHAiOjE3MDQwOTQ4ODh9._qhY5XJ4LWiYKt5h2yUvcKscyq9ChJR9kr1ShiNag_A
+@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1LCJub20iOiJ0ZXN0NCIsInByZW5vbSI6InVzZXI0IiwiZW1haWwiOiJ0ZXN0NEBnbWFpbC5jb20iLCJyb2xlIjoxfSwiaWF0IjoxNzA0MDA4NDg4LCJleHAiOjE3MDQxODEyODh9.yDd8Iv3DeO9vVfE8FizXqaVI3IwMZAnLJs_H5OVh5Ac
 
 #& -----------------------------------------------
 #~ ------------------------------------------ USER
@@ -13,9 +13,9 @@ POST {{entryPoint}}/signup
 Content-Type: application/json
 
 {
-    "nom": "test",
-    "prenom": "user",
-    "email": "test@gmail.com",
+    "nom": "test4",
+    "prenom": "user4",
+    "email": "test4@gmail.com",
     "mot_de_passe": "N6y$Ozddzt=1aa",
     "mot_de_passe_confirm": "N6y$Ozddzt=1aa"
 }
@@ -26,7 +26,7 @@ POST {{entryPoint}}/signin
 Content-Type: application/json
 
 {
-  "email": "testadmin@gmail.com",
+  "email": "test@gmail.com",
   "mot_de_passe": "N6y$Ozddzt=1aa"
 }
 
@@ -39,7 +39,7 @@ Content-Type: application/json
 
 #^ ------------------------ fetchOneUser
 ###
-GET {{entryPoint}}/users/2
+GET {{entryPoint}}/users/3
 Content-Type: application/json
 {{accessToken}}
 
@@ -51,13 +51,13 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "nom": "Yusssmdsdzadcvdwwdsqdqdxxsssedooooeeee"
+    "nom": "Yusssmdsdzxsssedooooeeee"
 }
 
 
 #^ ------------------------ deleteUser
 ###
-DELETE {{entryPoint}}/users/8
+DELETE {{entryPoint}}/users/2
 Content-Type: application/json
 {{accessToken}}
 
@@ -77,8 +77,8 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "titre": "Training Vegeta !",
-    "detail": "performances "
+    "titre": "anaerobie",
+    "detail": " moins difficile"
 
 }
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 
 #^ ------------------------ deleteTraining
 ###
-DELETE {{entryPoint}}/training/1
+DELETE {{entryPoint}}/training/3
 Content-Type: application/json
 {{accessToken}}
 
@@ -117,7 +117,7 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "titre": "Remise en forme"
+    "titre": "abs"
 
 }
 
@@ -135,12 +135,12 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "titre": "100 pompes"
+    "titre": "abs!"
 }
 
 #^ ------------------------ deleteType
 ###
-DELETE {{entryPoint}}/type/2
+DELETE {{entryPoint}}/type/1
 Content-Type: application/json
 {{accessToken}}
 
@@ -156,8 +156,8 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "titre": "tractions",
-    "detail": "barre fixe, passer la tête au dessus de la barre, puis redescendre ",
+    "titre": "plank",
+    "detail": "pompes classic ",
     "illustration": "svg"
 }
 
@@ -175,12 +175,12 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "titre": "100 pompes"
+    "titre": "pull up"
 }
 
 #^ ------------------------ deleteExercice
 ###
-DELETE {{entryPoint}}/exercice/2
+DELETE {{entryPoint}}/exercice/3
 Content-Type: application/json
 {{accessToken}}
 
@@ -194,7 +194,7 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "nom": "barre hexagonale"
+    "nom": "velo"
 }
 
 
@@ -204,59 +204,22 @@ GET {{entryPoint}}/materiel
 Content-Type: application/json
 {{accessToken}}
 
-#^ ------------------------ updateExercice
+#^ ------------------------ updateMateriel
 ###
 PATCH {{entryPoint}}/materiel/1
 Content-Type: application/json
 {{accessToken}}
 
 {
-    "nom": "100 pompes"
+    "nom": "slam ball"
 }
 
-#^ ------------------------ deleteExercice
+#^ ------------------------ deleteMateriel
 ###
 DELETE {{entryPoint}}/materiel/1
 Content-Type: application/json
 {{accessToken}}
 
-
-
-#^ ------------------------ Objectif
-
-#^ ------------------------ createObjectif
-###
-POST {{entryPoint}}/objectif
-Content-Type: application/json
-{{accessToken}}
-
-{
-    "nombre_rep": 35,
-    "temps": 30
-}
-
-
-#^ ------------------------ fetchAllObjectif
-###
-GET {{entryPoint}}/objectif
-Content-Type: application/json
-{{accessToken}}
-
-#^ ------------------------ updateObjectif
-###
-PATCH {{entryPoint}}/objectif/1
-Content-Type: application/json
-{{accessToken}}
-
-{
-    "nombre_rep": 100
-}
-
-#^ ------------------------ deleteObjectif
-###
-DELETE {{entryPoint}}/objectif/2
-Content-Type: application/json
-{{accessToken}}
 
 
 
@@ -269,9 +232,64 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "numero_level": 1,
-    "nombre_serie": 5,
-    "numero_serie": 2
+    "description": "advanced",
+    "max_rep": 60
 }
 
+
+
+#^ ------------------------ fetchAllNiveau
+###
+GET {{entryPoint}}/niveau
+Content-Type: application/json
+{{accessToken}}
+
+#^ ------------------------ updateNiveau
+###
+PATCH {{entryPoint}}/niveau/1
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "description": "débutant",
+    "max_rep": 8
+}
+
+#^ ------------------------ deleteNiveau
+###
+DELETE {{entryPoint}}/niveau/3
+Content-Type: application/json
+{{accessToken}}
+
+
+
+
+
+
+#^ ------------------------ User Has Training
+
+#^ ------------------------ createUserHasTraining
+###
+POST {{entryPoint}}/user/5/training/7
+Content-Type: application/json
+{{accessToken}}
+
+{
+    "user_id": 5,
+    "training_id": 7
+}
+
+
+#^ ------------------------ fetchAll Train by User
+###
+GET {{entryPoint}}/user/5/userHasTraining
+Content-Type: application/json
+{{accessToken}}
+
+
+#^ ------------------------ delete Training By User
+###
+DELETE {{entryPoint}}/user/5/training/7
+Content-Type: application/json
+{{accessToken}}
 

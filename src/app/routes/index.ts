@@ -34,5 +34,9 @@ router.use(materielRouter)
 import { router as niveauRouter} from './niveau.js'
 router.use(niveauRouter)
 
+//~ User has training
+import { router as userHasTrainingRouter } from './userHasTraining.js'
+router.use(userHasTrainingRouter)
+
 // Export router
 export { router };

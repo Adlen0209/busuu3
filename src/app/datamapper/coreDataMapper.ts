@@ -5,20 +5,6 @@ interface CoreDataMapper {
   tableName: string;
   columns: string;
 
-  createFunctionName: string;
-  updateFunctionName: string;
-
-  allProjectsWithCategories: string;
-  userIdentity: string;
-  articlesByUser: string;
-  articleByUser: string;
-  goldenBookTicketByUser: string;
-
-  projectsByUser: string;
-  projectByUser: string;
-
-  createWithCategoriesFunctionName: string;
-  updateWithCategoriesFunctionName: string;
 }
 
 class CoreDataMapper {

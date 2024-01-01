@@ -4,5 +4,6 @@ import { Exercice } from "./exercice.js";
 import { Niveau } from "./niveau.js";
 import { Type } from "./type.js";
 import { Materiel } from "./materiel.js";
-export { User, Training, Exercice, Niveau, Type, Materiel };
+import { UserHasTraining } from "./userHasTraining.js";
+export { User, Training, Exercice, Niveau, Type, Materiel, UserHasTraining };
 //# sourceMappingURL=index.js.map

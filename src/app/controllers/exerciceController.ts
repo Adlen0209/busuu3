@@ -13,7 +13,6 @@ const logger = debug('Controller');
 const createExercice = async (req: Request, res: Response) => {
     try {
       //~ Guard Clauses
-      console.log('ici')
       if (req.user?.role !== 2) throw new ErrorApi(`You cannot access this info`, req, res, 400);
        
       //~ Create Exercice

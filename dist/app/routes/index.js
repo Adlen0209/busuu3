@@ -14,5 +14,7 @@ import { router as materielRouter } from './materiel.js';
 router.use(materielRouter);
 import { router as niveauRouter } from './niveau.js';
 router.use(niveauRouter);
+import { router as userHasTrainingRouter } from './userHasTraining.js';
+router.use(userHasTrainingRouter);
 export { router };
 //# sourceMappingURL=index.js.map

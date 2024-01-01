@@ -5,7 +5,6 @@ import { coreController } from './coreController.js';
 const logger = debug('Controller');
 const createExercice = async (req, res) => {
     try {
-        console.log('ici');
         if (req.user?.role !== 2)
             throw new ErrorApi(`You cannot access this info`, req, res, 400);
         await exerciceModel.createItem(req, res);
