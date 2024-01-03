@@ -16,5 +16,7 @@ import { router as niveauRouter } from './niveau.js';
 router.use(niveauRouter);
 import { router as userHasTrainingRouter } from './userHasTraining.js';
 router.use(userHasTrainingRouter);
+import { router as trainingHasTypeRouter } from './trainingHasType.js';
+router.use(trainingHasTypeRouter);
 export { router };
 //# sourceMappingURL=index.js.map

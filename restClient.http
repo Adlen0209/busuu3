@@ -270,14 +270,10 @@ Content-Type: application/json
 
 #^ ------------------------ createUserHasTraining
 ###
-POST {{entryPoint}}/user/5/training/7
+POST {{entryPoint}}/user/5/training/4
 Content-Type: application/json
 {{accessToken}}
 
-{
-    "user_id": 5,
-    "training_id": 7
-}
 
 
 #^ ------------------------ fetchAll Train by User
