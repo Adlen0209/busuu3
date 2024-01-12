@@ -9,6 +9,9 @@ class TrainingHasExerciceModel extends CoreModel {
     itemsFound = (trainingId) => {
         return TrainingHasExercice.findAllExerciceByTraining(trainingId);
     };
+    deleteOneItem = (trainingId, exerciceId) => {
+        return TrainingHasExercice.deleteExerciceInTraining(trainingId, exerciceId);
+    };
 }
 const trainingHasExerciceModel = new TrainingHasExerciceModel();
 export { trainingHasExerciceModel };

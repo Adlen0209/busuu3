@@ -1,7 +1,7 @@
 @entryPoint = http://localhost:4200
 
-@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1LCJub20iOiJ0ZXN0NCIsInByZW5vbSI6InVzZXI0IiwiZW1haWwiOiJ0ZXN0NEBnbWFpbC5jb20iLCJyb2xlIjoxfSwiaWF0IjoxNzA0MDA4NDg4LCJleHAiOjE3MDQwOTQ4ODh9._qhY5XJ4LWiYKt5h2yUvcKscyq9ChJR9kr1ShiNag_A
-@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1LCJub20iOiJ0ZXN0NCIsInByZW5vbSI6InVzZXI0IiwiZW1haWwiOiJ0ZXN0NEBnbWFpbC5jb20iLCJyb2xlIjoxfSwiaWF0IjoxNzA0MDA4NDg4LCJleHAiOjE3MDQxODEyODh9.yDd8Iv3DeO9vVfE8FizXqaVI3IwMZAnLJs_H5OVh5Ac
+@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJub20iOiJZdXNzc21kc2R6eHNzc2Vkb29vb2VlZWUiLCJwcmVub20iOiJhZG1pbiIsImVtYWlsIjoidGVzdGFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDQyNzI1MTQsImV4cCI6MTcwNDM1ODkxNH0.0YWwZRmKQT4BTY-dYuuQhiQNehIFkC0xhoyWHgKh0cs
+@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJub20iOiJZdXNzc21kc2R6eHNzc2Vkb29vb2VlZWUiLCJwcmVub20iOiJhZG1pbiIsImVtYWlsIjoidGVzdGFkbWluQGdtYWlsLmNvbSIsInJvbGUiOjJ9LCJpYXQiOjE3MDQyNzI1MTQsImV4cCI6MTcwNDQ0NTMxNH0.rbp0WAazKxpnvM6_fNCjb3IK9sBWDGQrznx7u9PeSFg
 
 #& -----------------------------------------------
 #~ ------------------------------------------ USER
@@ -26,7 +26,7 @@ POST {{entryPoint}}/signin
 Content-Type: application/json
 
 {
-  "email": "test@gmail.com",
+  "email": "testadmin@gmail.com",
   "mot_de_passe": "N6y$Ozddzt=1aa"
 }
 
@@ -46,12 +46,12 @@ Content-Type: application/json
 
 #^ ------------------------ updateUser
 ###
-PATCH {{entryPoint}}/users/1
+PATCH {{entryPoint}}/users/5
 Content-Type: application/json
 {{accessToken}}
 
 {
-    "nom": "Yusssmdsdzxsssedooooeeee"
+    "nom": "Yus"
 }
 
 
@@ -117,7 +117,7 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "titre": "abs"
+    "titre": "semi-marathon"
 
 }
 
@@ -156,8 +156,8 @@ Content-Type: application/json
 {{accessToken}}
 
 {
-    "titre": "plank",
-    "detail": "pompes classic ",
+    "titre": "nage",
+    "detail": "10 km",
     "illustration": "svg"
 }
 
@@ -278,7 +278,7 @@ Content-Type: application/json
 
 #^ ------------------------ fetchAll Train by User
 ###
-GET {{entryPoint}}/user/5/userHasTraining
+GET {{entryPoint}}/user/:userId(\\d+)/userHasTraining
 Content-Type: application/json
 {{accessToken}}
 
@@ -289,3 +289,53 @@ DELETE {{entryPoint}}/user/5/training/7
 Content-Type: application/json
 {{accessToken}}
 
+
+
+#^ ------------------------ Training has type
+
+#^ ------------------------ create training has type
+###
+POST {{entryPoint}}/training/7/type/9
+Content-Type: application/json
+{{accessToken}}
+
+
+
+#^ ------------------------ fetchAll Training by type
+###
+GET {{entryPoint}}/trainingByType/type/2
+Content-Type: application/json
+{{accessToken}}
+
+
+#^ ------------------------ delete Training Has Type
+###
+DELETE {{entryPoint}}/trainingHasType/6
+Content-Type: application/json
+{{accessToken}}
+
+
+
+
+#^ ------------------------ Training has Exercice
+
+#^ ------------------------ create training has exercice
+###
+POST {{entryPoint}}/training/4/exercice/9
+Content-Type: application/json
+{{accessToken}}
+
+
+
+#^ ------------------------ fetchAll Exercice By Training
+###
+GET {{entryPoint}}/trainingHasExercice/training/4
+Content-Type: application/json
+{{accessToken}}
+
+
+#^ ------------------------ delete exercice in training
+###
+DELETE {{entryPoint}}/trainingHasType/6
+Content-Type: application/json
+{{accessToken}}

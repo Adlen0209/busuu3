@@ -34,22 +34,23 @@ class TrainingHasExerciceDataMapper extends CoreDataMapper {
         }
 
 
-    // //& Delete One training Has type
-    // async deleteTrainingHasType(trainingId: number) {
-    //   if (this.client instanceof pg.Pool) {
-    //     const preparedQuery = {
-    //       text: `
-    //                        DELETE FROM "${this.tableName}"
-    //                        WHERE "training_id" = $1;
-    //                        `,
-    //       values: [trainingId],
-    //     };
+    //& Delete One exercice in training
+     async deleteExerciceInTraining(trainingId: number, exerciceId: number) {
+       if (this.client instanceof pg.Pool) {
+         const preparedQuery = {
+           text: `
+                            DELETE FROM "${this.tableName}"
+                            WHERE "training_id" = $1
+                            AND "exercice_id" = $2;
+                            `,
+           values: [trainingId, exerciceId],
+         };
   
-    //     const result = await this.client.query(preparedQuery);
+         const result = await this.client.query(preparedQuery);
   
-    //     return result.rowCount;
-    //   }
-    // }
+         return result.rowCount;
+       }
+     }
 }
 
 const TrainingHasExercice = new TrainingHasExerciceDataMapper(client);

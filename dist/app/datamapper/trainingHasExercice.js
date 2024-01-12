@@ -26,6 +26,20 @@ class TrainingHasExerciceDataMapper extends CoreDataMapper {
             return result.rows;
         }
     }
+    async deleteExerciceInTraining(trainingId, exerciceId) {
+        if (this.client instanceof pg.Pool) {
+            const preparedQuery = {
+                text: `
+                            DELETE FROM "${this.tableName}"
+                            WHERE "training_id" = $1
+                            AND "exercice_id" = $2;
+                            `,
+                values: [trainingId, exerciceId],
+            };
+            const result = await this.client.query(preparedQuery);
+            return result.rowCount;
+        }
+    }
 }
 const TrainingHasExercice = new TrainingHasExerciceDataMapper(client);
 export { TrainingHasExercice };

@@ -3,7 +3,7 @@
 import { Router } from 'express';
 import { validateToken } from '../middlewares/validateToken.js';
 import {  admin, auth } from '../middlewares/auth.js';
-import { createTrainingHasExercice, fetchAllExerciceByTraining } from '../controllers/trainingHasExerciceController.js';
+import { createTrainingHasExercice, deleteExerciceInTraining, fetchAllExerciceByTraining } from '../controllers/trainingHasExerciceController.js';
 const router = Router();
 
 
@@ -14,8 +14,8 @@ router.post('/training/:trainingId(\\d+)/exercice/:exerciceId(\\d+)', [validateT
 // Fetch all exercices by training
 router.get('/trainingHasExercice/training/:trainingId(\\d+)', [validateToken, auth], fetchAllExerciceByTraining);
 
-// // Delete Type
-// router.delete('/trainingHasType/:trainingId(\\d+)',  [validateToken, auth, admin], deleteTrainingHasType)
+// Delete exercice in training
+router.delete('/trainingHasExercice/training/:trainingId(\\d+)/exercice/:exerciceId(\\d+)',  [validateToken, auth, admin], deleteExerciceInTraining)
 
 
 //~ Export router

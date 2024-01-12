@@ -48,24 +48,25 @@ const createTrainingHasExercice = async (req: Request, res: Response) => {
      }
    };
 
-//   //& -------- delete Training Has Type
-//   const deleteTrainingHasType = async (req: Request, res: Response) => {
-//     try {
-//       //~ Is id a number ?
-//       const trainingId = await coreController.paramsHandler(req, res, 'trainingId');
+   //& -------- delete Exercice in training
+   const deleteExerciceInTraining = async (req: Request, res: Response) => {
+     try {
+       //~ Is id a number ?
+       const trainingId = await coreController.paramsHandler(req, res, 'trainingId');
+       const exerciceId = await coreController.paramsHandler(req, res, 'exerciceId');
   
   
-//       //~ Guard Clauses
-//       if (req.user?.role !== 2) throw new ErrorApi(`You cannot access this info`, req, res, 400);
+       //~ Guard Clauses
+       if (req.user?.role !== 2) throw new ErrorApi(`You cannot access this info`, req, res, 400);
   
-//       //~ Delete training
-//       await trainingHasTypeModel.deleteOneItem(trainingId);
+       //~ Delete training
+       await trainingHasExerciceModel.deleteOneItem(trainingId, exerciceId);
   
-//       //~ Result
-//       return res.status(200).json(`Training has type deleted`);
-//     } catch (err) {
-//       if (err instanceof Error) logger(err.message);
-//     }
-//   };
+       //~ Result
+       return res.status(200).json(`Exercice in trainingdeleted`);
+     } catch (err) {
+       if (err instanceof Error) logger(err.message);
+     }
+   };
 
-  export { createTrainingHasExercice, fetchAllExerciceByTraining }
+  export { createTrainingHasExercice, fetchAllExerciceByTraining, deleteExerciceInTraining }
