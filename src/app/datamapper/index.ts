@@ -7,5 +7,6 @@ import { Materiel } from "./materiel.js";
 import { UserHasTraining } from "./userHasTraining.js";
 import { TrainingHasType } from "./trainingHasType.js";
 import { TrainingHasExercice } from "./trainingHasExercice.js";
+import { ExerciceHasNiveau } from "./exerciceHasNiveau.js";
 
-export { User, Training, Exercice, Niveau, Type, Materiel, UserHasTraining, TrainingHasType, TrainingHasExercice};
+export { User, Training, Exercice, Niveau, Type, Materiel, UserHasTraining, TrainingHasType, TrainingHasExercice, ExerciceHasNiveau};

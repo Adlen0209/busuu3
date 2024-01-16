@@ -46,5 +46,9 @@ router.use(trainingHasTypeRouter)
 import { router as trainingHasExerciceRouter} from './trainingHasExercice.js'
 router.use(trainingHasExerciceRouter)
 
+//~ Exercice Has Niveau
+import { router as exerciceHasNiveauRouter } from './exerciceHasNiveau.js'
+router.use(exerciceHasNiveauRouter)
+
 // Export router
 export { router };

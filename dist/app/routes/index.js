@@ -20,5 +20,7 @@ import { router as trainingHasTypeRouter } from './trainingHasType.js';
 router.use(trainingHasTypeRouter);
 import { router as trainingHasExerciceRouter } from './trainingHasExercice.js';
 router.use(trainingHasExerciceRouter);
+import { router as exerciceHasNiveauRouter } from './exerciceHasNiveau.js';
+router.use(exerciceHasNiveauRouter);
 export { router };
 //# sourceMappingURL=index.js.map
