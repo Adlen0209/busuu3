@@ -37,11 +37,38 @@ class ExerciceHasNiveauDataMapper extends CoreDataMapper {
             return result.rows;
         }
     }
+    async checkNiveau(exerciceId, userId) {
+        if (this.client instanceof pg.Pool) {
+            const preparedQuery = {
+                text: `SELECT niveau_id
+                FROM "${this.tableName}" 
+                WHERE exercice_id = $1
+                AND user_id = $2
+                ;`,
+                values: [exerciceId, userId]
+            };
+            const result = await this.client.query(preparedQuery);
+            return result.rows;
+        }
+    }
     async deleteValidatedNiveau(exerciceId, userId) {
         if (this.client instanceof pg.Pool) {
             const preparedQuery = {
                 text: `DELETE FROM "${this.tableName}" WHERE "validated" = 'true'
                 AND "exercice_id" = $1
+                AND "user_id" = $2
+                ;`,
+                values: [exerciceId, userId]
+            };
+            const result = await this.client.query(preparedQuery);
+            return result.rows;
+        }
+    }
+    async deleteExerciceHasNiveau(exerciceId, userId) {
+        if (this.client instanceof pg.Pool) {
+            const preparedQuery = {
+                text: `DELETE FROM "${this.tableName}" WHERE 
+                "exercice_id" = $1
                 AND "user_id" = $2
                 ;`,
                 values: [exerciceId, userId]

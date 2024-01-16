@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import debug from 'debug';
 const logger = debug('Controller');
 //~ Import Models
-
+import { ExerciceHasNiveau } from '../datamapper/exerciceHasNiveau.js';
 import { coreController } from './coreController.js';
 import { ErrorApi } from '../services/errorHandler.js';
 import { exerciceHasNiveauModel } from '../models/exerciceHasNiveauModel.js';
@@ -39,7 +39,7 @@ const createExerciceHasNiveau = async (req: Request, res: Response) => {
   };
 
 
-  //& -------- Validate niveau
+  //& -------- Validate niveau + level up
 const validateExerciceHasNiveau = async (req: Request, res: Response) => {
   try {
 
@@ -50,7 +50,7 @@ const validateExerciceHasNiveau = async (req: Request, res: Response) => {
     
 
       if (req.user?.id !== userId) throw new ErrorApi(`You cannot access this info`, req, res, 400);
-      //~ Associate
+  
     //~ Validate
     await exerciceHasNiveauModel.validate(niveauId, exerciceId, userId);
 
@@ -68,37 +68,83 @@ const validateExerciceHasNiveau = async (req: Request, res: Response) => {
     if (err instanceof Error) logger(err.message);
   }
 };
-// //& ------- Fetch All training by Type
-//   const fetchAllTrainingByType = async (req:Request, res: Response) => {
-//     try {
-//      const typeId = await coreController.paramsHandler(req, res, 'typeId')
 
-//      //Fetch if exist
-//      const training = await trainingHasTypeModel.fetchAllItems(req, res, typeId)
-//       return res.status(200).json(training)
-//     } catch(err) {
-//       if(err instanceof Error) logger(err.message)
-//     }
-//   };
+const niveauDownExerciceHasNiveau = async (req: Request, res: Response) => {
+  try {
 
-//   //& -------- delete Training Has Type
-//   const deleteTrainingHasType = async (req: Request, res: Response) => {
-//     try {
-//       //~ Is id a number ?
-//       const trainingId = await coreController.paramsHandler(req, res, 'trainingId');
-  
-  
-//       //~ Guard Clauses
-//       if (req.user?.role !== 2) throw new ErrorApi(`You cannot access this info`, req, res, 400);
-  
-//       //~ Delete training
-//       await trainingHasTypeModel.deleteOneItem(trainingId);
-  
-//       //~ Result
-//       return res.status(200).json(`Training has type deleted`);
-//     } catch (err) {
-//       if (err instanceof Error) logger(err.message);
-//     }
-//   };
+      const niveauId = await coreController.paramsHandler(req, res, 'niveauId');
+      const exerciceId = await coreController.paramsHandler(req, res, 'exerciceId');
+      const userId = await coreController.paramsHandler(req, res, 'userId');
+   
+    
 
-  export { createExerciceHasNiveau, validateExerciceHasNiveau}
+      if (req.user?.id !== userId) throw new ErrorApi(`You cannot access this info`, req, res, 400);
+
+    //~ Validate
+    await exerciceHasNiveauModel.validate(niveauId, exerciceId, userId);
+
+    //~ Niveau down
+    await exerciceHasNiveauModel.createOneItem(niveauId - 1, exerciceId, userId);
+   
+
+    //~ Delete where validated = true
+    await exerciceHasNiveauModel.deleteOneItem(exerciceId, userId);
+    
+    
+    //~ Result
+    return res.status(201).json('Exercice has niveau successfully downed !');
+  } catch (err) {
+    if (err instanceof Error) logger(err.message);
+  }
+};
+
+//& -------- Check niveau if exist
+const checkNiveau = async (req: Request, res: Response) => {
+  try {
+      //~ Is id a number ?
+      const exerciceId = await coreController.paramsHandler(req, res, 'exerciceId');
+      const userId = await coreController.paramsHandler(req, res, 'userId');
+
+      //~ Guard Clauses
+      if (req.user?.id !== userId) throw new ErrorApi(`You cannot access this info`, req, res, 400);
+  
+      const niveau = await exerciceHasNiveauModel.checkIfExist(exerciceId, userId);
+      
+      //~ If niveau doesn't exist return status 205
+      if(niveau?.length === 0) {
+        
+        res.status(205).json(`Select your level`)
+        
+      //~ If niveau exist => return status 201
+      } else if(niveau) {
+        res.status(201).json(`current niveau => ${niveau[0].niveau_id}`)
+        
+      }
+    } catch (err) {
+      if (err instanceof Error) logger(err.message);
+    }
+}
+
+
+//& -------- delete niveau for exercice by user
+   const deleteExerciceHasNiveau = async (req: Request, res: Response) => {
+     try {
+       //~ Is id a number ?
+       const exerciceId = await coreController.paramsHandler(req, res, 'exerciceId');
+       const userId = await coreController.paramsHandler(req, res, 'userId');
+  
+  
+       //~ Guard Clauses
+       if (req.user?.id !== userId) throw new ErrorApi(`You cannot access this info`, req, res, 400);
+  
+       //~ Delete training
+       await ExerciceHasNiveau.deleteExerciceHasNiveau(exerciceId, userId);
+  
+       //~ Result
+       return res.status(200).json(`exercice has niveau deleted`);
+     } catch (err) {
+       if (err instanceof Error) logger(err.message);
+     }
+   };
+
+  export { createExerciceHasNiveau, validateExerciceHasNiveau, niveauDownExerciceHasNiveau, deleteExerciceHasNiveau, checkNiveau}

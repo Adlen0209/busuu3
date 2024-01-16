@@ -12,6 +12,9 @@ class ExerciceHasNiveauModel extends CoreModel {
     deleteOneItem = (exerciceId, userId) => {
         return ExerciceHasNiveau.deleteValidatedNiveau(exerciceId, userId);
     };
+    checkIfExist = (exerciceId, userId) => {
+        return ExerciceHasNiveau.checkNiveau(exerciceId, userId);
+    };
 }
 const exerciceHasNiveauModel = new ExerciceHasNiveauModel();
 export { exerciceHasNiveauModel };

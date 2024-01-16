@@ -27,6 +27,10 @@ class CoreModel {
         const result = await this.deleteOneItem(id);
         return result;
     };
+    deleteAllItem = async (id) => {
+        const result = await this.deleteAllItem(id);
+        return result;
+    };
     checkEmail = async (req, res, email) => {
         const result = await this.emailExist(email);
         if (result)

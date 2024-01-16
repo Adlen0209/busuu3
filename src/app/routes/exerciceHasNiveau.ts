@@ -3,7 +3,7 @@
 import { Router } from 'express';
 import { validateToken } from '../middlewares/validateToken.js';
 import {  admin, auth } from '../middlewares/auth.js';
-import { createExerciceHasNiveau, validateExerciceHasNiveau } from '../controllers/exerciceHasNiveauController.js';
+import { checkNiveau, createExerciceHasNiveau, deleteExerciceHasNiveau, niveauDownExerciceHasNiveau, validateExerciceHasNiveau } from '../controllers/exerciceHasNiveauController.js';
 const router = Router();
 
 
@@ -14,11 +14,15 @@ router.post('/niveau/:niveauId(\\d+)/exercice/:exerciceId(\\d+)/user/:userId(\\d
 
 // Validate niveau exercice 
 router.patch('/niveau/:niveauId(\\d+)/exercice/:exerciceId(\\d+)/user/:userId(\\d+)', [validateToken, auth], validateExerciceHasNiveau)
-// // Fetch all
-// router.get('/trainingByType/type/:typeId(\\d+)', [validateToken, auth], fetchAllTrainingByType);
 
- // Delete 
-// router.delete('/trainingHasType/:trainingId(\\d+)',  [validateToken, auth, admin], deleteTrainingHasType)
+// niveau down 
+router.patch('/niveau/:niveauId(\\d+)/exercice/:exerciceId(\\d+)/user/:userId(\\d+)/down', [validateToken, auth], niveauDownExerciceHasNiveau)
+
+// Check niveau 
+router.get('/exercicehasniveau/exercice/:exerciceId(\\d+)/user/:userId(\\d+)', [validateToken, auth], checkNiveau)
+
+// Delete 
+router.delete('/exercicehasniveau/exercice/:exerciceId(\\d+)/user/:userId(\\d+)',  [validateToken, auth, admin], deleteExerciceHasNiveau)
 
 
 //~ Export router

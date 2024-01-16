@@ -14,14 +14,17 @@ class ExerciceHasNiveauModel extends CoreModel {
   validate = (niveauId: number, exerciceId: number, userId: number) => {
     return ExerciceHasNiveau.validateNiveau(niveauId, exerciceId, userId);
   }
-//    itemsFound = (typeId: number) => {
-//      return ExerciceHasNiveau.findAllByType(typeId);
-//    };
 
-    deleteOneItem = (exerciceId: number, userId: number) => {
-      return ExerciceHasNiveau.deleteValidatedNiveau(exerciceId, userId );
-    };
+  deleteOneItem = (exerciceId: number, userId: number) => {
+    return ExerciceHasNiveau.deleteValidatedNiveau(exerciceId, userId );
+  };
+
+  checkIfExist = (exerciceId: number, userId: number) => {
+    return ExerciceHasNiveau.checkNiveau(exerciceId, userId);
+  }
 }
+
+
 
 const exerciceHasNiveauModel = new ExerciceHasNiveauModel();
 export { exerciceHasNiveauModel };

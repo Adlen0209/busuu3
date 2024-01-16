@@ -64,6 +64,11 @@ class CoreModel {
     return result;
   };
 
+  deleteAllItem = async (id: number | undefined): Promise<string[]> => {
+    const result = await this.deleteAllItem(id);
+    return result;
+  };
+  
   //& Check & Fetch
   checkEmail = async (
     req: Request,

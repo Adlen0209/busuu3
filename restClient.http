@@ -358,14 +358,14 @@ Content-Type: application/json
 
 
 
-#^ ------------------------ fetchAll Exercice By Training
+#^ ------------------------ niveau down
 ###
-GET {{entryPoint}}/trainingHasExercice/training/1
+PATCH {{entryPoint}}/niveau/1/exercice/2/user/1/down
 Content-Type: application/json
 {{accessToken}}
 
 
-#^ ------------------------ delete exercice in training
+#^ ------------------------ delete niveau for exercice by user
 ###
 DELETE {{entryPoint}}/trainingHasExercice/training/4/exercice/7
 Content-Type: application/json
