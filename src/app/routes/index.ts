@@ -50,5 +50,9 @@ router.use(trainingHasExerciceRouter)
 import { router as exerciceHasNiveauRouter } from './exerciceHasNiveau.js'
 router.use(exerciceHasNiveauRouter)
 
+//~ Exercice has serie
+//  import { router as exerciceHasSerieRouter } from './exerciceHasSerie.js'
+// router.use(exerciceHasSerieRouter)
+
 // Export router
 export { router };

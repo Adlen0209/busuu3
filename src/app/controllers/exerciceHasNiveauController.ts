@@ -110,20 +110,47 @@ const checkNiveau = async (req: Request, res: Response) => {
   
       const niveau = await exerciceHasNiveauModel.checkIfExist(exerciceId, userId);
       
-      //~ If niveau doesn't exist return status 205
+      //~ If niveau doesn't exist return status 204
       if(niveau?.length === 0) {
         
-        res.status(205).json(`Select your level`)
+        res.status(204).json(`Select your level`)
         
       //~ If niveau exist => return status 201
       } else if(niveau) {
-        res.status(201).json(`current niveau => ${niveau[0].niveau_id}`)
+
+        const niveauId = niveau[0].niveau_id
+        // const result = await ExerciceHasNiveau.fetchSerie(exerciceId, niveauId);
+        
+        // console.log(result)
+     
+        res.status(201).json(JSON.stringify(niveauId))
         
       }
     } catch (err) {
       if (err instanceof Error) logger(err.message);
     }
 }
+
+//& -------- delete niveau for exercice by user
+const testNiveau = async (req: Request, res: Response) => {
+  try {
+    //~ Is id a number ?
+    const exerciceId = await coreController.paramsHandler(req, res, 'exerciceId');
+   const userId = await coreController.paramsHandler(req, res, 'userId');
+
+
+    //~ Guard Clauses
+    if (req.user?.id !== userId) throw new ErrorApi(`You cannot access this info`, req, res, 400);
+    //~ Delete training
+    const result = await ExerciceHasNiveau.testNiveau(userId, exerciceId);
+    console.log(result)
+    //~ Result
+    return res.status(200).json(JSON.stringify(result) );
+  } catch (err) {
+    if (err instanceof Error) logger(err.message);
+  }
+};
+
 
 
 //& -------- delete niveau for exercice by user
@@ -147,4 +174,4 @@ const checkNiveau = async (req: Request, res: Response) => {
      }
    };
 
-  export { createExerciceHasNiveau, validateExerciceHasNiveau, niveauDownExerciceHasNiveau, deleteExerciceHasNiveau, checkNiveau}
+  export { createExerciceHasNiveau, validateExerciceHasNiveau, niveauDownExerciceHasNiveau, deleteExerciceHasNiveau, checkNiveau, testNiveau}

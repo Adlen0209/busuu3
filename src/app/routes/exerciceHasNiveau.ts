@@ -3,7 +3,7 @@
 import { Router } from 'express';
 import { validateToken } from '../middlewares/validateToken.js';
 import {  admin, auth } from '../middlewares/auth.js';
-import { checkNiveau, createExerciceHasNiveau, deleteExerciceHasNiveau, niveauDownExerciceHasNiveau, validateExerciceHasNiveau } from '../controllers/exerciceHasNiveauController.js';
+import { checkNiveau, createExerciceHasNiveau, deleteExerciceHasNiveau, niveauDownExerciceHasNiveau, testNiveau, validateExerciceHasNiveau } from '../controllers/exerciceHasNiveauController.js';
 const router = Router();
 
 
@@ -24,6 +24,8 @@ router.get('/exercicehasniveau/exercice/:exerciceId(\\d+)/user/:userId(\\d+)', [
 // Delete 
 router.delete('/exercicehasniveau/exercice/:exerciceId(\\d+)/user/:userId(\\d+)',  [validateToken, auth, admin], deleteExerciceHasNiveau)
 
+//test
+router.post('/exerciceHasSerie/user/:userId(\\d+)/exercice/:exerciceId(\\d+)', [validateToken, auth],  testNiveau)
 
 //~ Export router
 export { router };

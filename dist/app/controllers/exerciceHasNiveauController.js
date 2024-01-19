@@ -61,11 +61,29 @@ const checkNiveau = async (req, res) => {
             throw new ErrorApi(`You cannot access this info`, req, res, 400);
         const niveau = await exerciceHasNiveauModel.checkIfExist(exerciceId, userId);
         if (niveau?.length === 0) {
-            res.status(205).json(`Select your level`);
+            res.status(204).json(`Select your level`);
         }
         else if (niveau) {
-            res.status(201).json(`current niveau => ${niveau[0].niveau_id}`);
+            const niveauId = niveau[0].niveau_id;
+            res.status(201).json(JSON.stringify(niveauId));
         }
+    }
+    catch (err) {
+        if (err instanceof Error)
+            logger(err.message);
+    }
+};
+const testNiveau = async (req, res) => {
+    try {
+        const exerciceId = await coreController.paramsHandler(req, res, 'exerciceId');
+        const userId = await coreController.paramsHandler(req, res, 'userId');
+        if (req.user?.id !== userId)
+            throw new ErrorApi(`You cannot access this info`, req, res, 400);
+        console.log("avant");
+        const result = await ExerciceHasNiveau.testNiveau(userId, exerciceId);
+        console.log("apres");
+        console.log(result);
+        return res.status(200).json(JSON.stringify(result));
     }
     catch (err) {
         if (err instanceof Error)
@@ -86,5 +104,5 @@ const deleteExerciceHasNiveau = async (req, res) => {
             logger(err.message);
     }
 };
-export { createExerciceHasNiveau, validateExerciceHasNiveau, niveauDownExerciceHasNiveau, deleteExerciceHasNiveau, checkNiveau };
+export { createExerciceHasNiveau, validateExerciceHasNiveau, niveauDownExerciceHasNiveau, deleteExerciceHasNiveau, checkNiveau, testNiveau };
 //# sourceMappingURL=exerciceHasNiveauController.js.map

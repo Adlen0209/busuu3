@@ -1,7 +1,7 @@
 @entryPoint = http://localhost:4200
 
-@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJub20iOiJ0ZXN0YWRtaW4iLCJwcmVub20iOiJ1c2VyYWRtaW4iLCJlbWFpbCI6InRlc3RhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoyfSwiaWF0IjoxNzA1NDA2NTk3LCJleHAiOjE3MDU0OTI5OTd9.RY0IqXvzZyJn0RVBZ04762oqPEAYV04Rr1OlsbCBV5Y
-@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJub20iOiJ0ZXN0YWRtaW4iLCJwcmVub20iOiJ1c2VyYWRtaW4iLCJlbWFpbCI6InRlc3RhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoyfSwiaWF0IjoxNzA1NDA2NTk3LCJleHAiOjE3MDU1NzkzOTd9.7fL6tY6p90587XkpJPWNMwzD_494euHZBEvfD3_8d5A
+@accessToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0MiIsInByZW5vbSI6InVzZXJhZG1pbiIsImVtYWlsIjoidGVzdDJAZ21haWwuY29tIiwicm9sZSI6MX0sImlhdCI6MTcwNTY3MzU4NCwiZXhwIjoxNzA1NzU5OTg0fQ.tyqDsR39mAFFkr8Q_ie2Pm7i-HbzMjlRO2BJdVH_zUY
+@refreshToken = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJub20iOiJ0ZXN0MiIsInByZW5vbSI6InVzZXJhZG1pbiIsImVtYWlsIjoidGVzdDJAZ21haWwuY29tIiwicm9sZSI6MX0sImlhdCI6MTcwNTY3MzU4NCwiZXhwIjoxNzA1ODQ2Mzg0fQ.HCHd3S01hJub4Cww7H7duy9V7uf0SE-mu7TbWnX3Qp0
 
 #& -----------------------------------------------
 #~ ------------------------------------------ USER
@@ -13,9 +13,9 @@ POST {{entryPoint}}/signup
 Content-Type: application/json
 
 {
-    "nom": "testadmin",
+    "nom": "test2",
     "prenom": "useradmin",
-    "email": "testadmin@gmail.com",
+    "email": "test4@gmail.com",
     "mot_de_passe": "N6y$Ozddzt=1aa",
     "mot_de_passe_confirm": "N6y$Ozddzt=1aa"
 }
@@ -70,7 +70,7 @@ Content-Type: application/json
 
 #^ ------------------------ Training
 
-#^ ------------------------ createTraining
+#^ ------------------------ createTraining  ADMIN
 ###
 POST {{entryPoint}}/training
 Content-Type: application/json
@@ -89,7 +89,7 @@ GET {{entryPoint}}/training
 Content-Type: application/json
 {{accessToken}}
 
-#^ ------------------------ updateTraining
+#^ ------------------------ updateTraining  ADMIN
 ###
 PATCH {{entryPoint}}/training/2
 Content-Type: application/json
@@ -100,7 +100,7 @@ Content-Type: application/json
     "detail": "bla bla bla "
 }
 
-#^ ------------------------ deleteTraining
+#^ ------------------------ deleteTraining  ADMIN
 ###
 DELETE {{entryPoint}}/training/3
 Content-Type: application/json
@@ -110,7 +110,7 @@ Content-Type: application/json
 
 #^ ------------------------ Type
 
-#^ ------------------------ createType
+#^ ------------------------ createType  ADMIN
 ###
 POST {{entryPoint}}/type
 Content-Type: application/json
@@ -128,7 +128,7 @@ GET {{entryPoint}}/type
 Content-Type: application/json
 {{accessToken}}
 
-#^ ------------------------ updateType
+#^ ------------------------ updateType  ADMIN
 ###
 PATCH {{entryPoint}}/type/3
 Content-Type: application/json
@@ -138,7 +138,7 @@ Content-Type: application/json
     "titre": "abs!"
 }
 
-#^ ------------------------ deleteType
+#^ ------------------------ deleteType  ADMIN
 ###
 DELETE {{entryPoint}}/type/1
 Content-Type: application/json
@@ -149,7 +149,7 @@ Content-Type: application/json
 
 #^ ------------------------ Exercice
 
-#^ ------------------------ createExercice
+#^ ------------------------ createExercice  ADMIN
 ###
 POST {{entryPoint}}/exercice
 Content-Type: application/json
@@ -168,7 +168,7 @@ GET {{entryPoint}}/exercice
 Content-Type: application/json
 {{accessToken}}
 
-#^ ------------------------ updateExercice
+#^ ------------------------ updateExercice  ADMIN
 ###
 PATCH {{entryPoint}}/exercice/1
 Content-Type: application/json
@@ -178,7 +178,7 @@ Content-Type: application/json
     "titre": "pull up"
 }
 
-#^ ------------------------ deleteExercice
+#^ ------------------------ deleteExercice  ADMIN
 ###
 DELETE {{entryPoint}}/exercice/3
 Content-Type: application/json
@@ -187,7 +187,7 @@ Content-Type: application/json
 
 #^ ------------------------ Materiel
 
-#^ ------------------------ createMateriel
+#^ ------------------------ createMateriel ADMIN
 ###
 POST {{entryPoint}}/materiel
 Content-Type: application/json
@@ -204,7 +204,7 @@ GET {{entryPoint}}/materiel
 Content-Type: application/json
 {{accessToken}}
 
-#^ ------------------------ updateMateriel
+#^ ------------------------ updateMateriel ADMIN
 ###
 PATCH {{entryPoint}}/materiel/1
 Content-Type: application/json
@@ -214,7 +214,7 @@ Content-Type: application/json
     "nom": "slam ball"
 }
 
-#^ ------------------------ deleteMateriel
+#^ ------------------------ deleteMateriel  ADMIN
 ###
 DELETE {{entryPoint}}/materiel/1
 Content-Type: application/json
@@ -225,7 +225,7 @@ Content-Type: application/json
 
 #^ ------------------------ Niveau
 
-#^ ------------------------ createNiveau
+#^ ------------------------ createNiveau  ADMIN
 ###
 POST {{entryPoint}}/niveau
 Content-Type: application/json
@@ -244,7 +244,7 @@ GET {{entryPoint}}/niveau
 Content-Type: application/json
 {{accessToken}}
 
-#^ ------------------------ updateNiveau
+#^ ------------------------ updateNiveau  ADMIN
 ###
 PATCH {{entryPoint}}/niveau/4
 Content-Type: application/json
@@ -255,7 +255,7 @@ Content-Type: application/json
     "max_rep": 8
 }
 
-#^ ------------------------ deleteNiveau
+#^ ------------------------ deleteNiveau  ADMIN
 ###
 DELETE {{entryPoint}}/niveau/4
 Content-Type: application/json
@@ -293,7 +293,7 @@ Content-Type: application/json
 
 #^ ------------------------ Training has type
 
-#^ ------------------------ create training has type
+#^ ------------------------ create training has type  ADMIN
 ###
 POST {{entryPoint}}/training/1/type/1
 Content-Type: application/json
@@ -308,7 +308,7 @@ Content-Type: application/json
 {{accessToken}}
 
 
-#^ ------------------------ delete Training Has Type
+#^ ------------------------ delete Training Has Type  ADMIN
 ###
 DELETE {{entryPoint}}/trainingHasType/6
 Content-Type: application/json
@@ -319,7 +319,7 @@ Content-Type: application/json
 
 #^ ------------------------ Training has Exercice
 
-#^ ------------------------ create training has exercice
+#^ ------------------------ create training has exercice  ADMIN
 ###
 POST {{entryPoint}}/training/2/exercice/2
 Content-Type: application/json
@@ -334,7 +334,7 @@ Content-Type: application/json
 {{accessToken}}
 
 
-#^ ------------------------ delete exercice in training
+#^ ------------------------ delete exercice in training  ADMIN   
 ###
 DELETE {{entryPoint}}/trainingHasExercice/training/4/exercice/7
 Content-Type: application/json
@@ -352,7 +352,7 @@ Content-Type: application/json
 
 #^ ------------------------ VALIDATE niveau
 ###
-PATCH {{entryPoint}}/niveau/1/exercice/2/user/1
+PATCH {{entryPoint}}/niveau/1/exercice/2/user/2
 Content-Type: application/json
 {{accessToken}}
 
@@ -365,8 +365,22 @@ Content-Type: application/json
 {{accessToken}}
 
 
+
+#^ ------------------------ CHECK niveau for exercice by user
+###
+GET {{entryPoint}}/exercicehasniveau/exercice/2/user/2
+Content-Type: application/json
+{{accessToken}} 
+
+
 #^ ------------------------ delete niveau for exercice by user
 ###
-DELETE {{entryPoint}}/trainingHasExercice/training/4/exercice/7
+DELETE {{entryPoint}}/exercicehasniveau/exercice/2/user/1
+Content-Type: application/json
+{{accessToken}} 
+
+#^ ------------------------ TEST
+###
+POST {{entryPoint}}/exerciceHasSerie/user/2/exercice/2
 Content-Type: application/json
 {{accessToken}} 
